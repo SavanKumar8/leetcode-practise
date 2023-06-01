@@ -11,3 +11,22 @@ if(value in cache){
 }
 }
 }
+
+
+// Input
+// "sum"
+// ["call","call","getCallCount","call","getCallCount"]
+// [[2,2],[2,2],[],[1,2],[]]
+// Output
+// [4,4,1,3,2]
+
+function memoize(fn) {
+    let cache= {}
+    return function(...args) {
+        let value =  String(args)
+        if( value in cache){
+            return cache[value]
+        }
+        return cache[value] = fn(...args)
+    }
+}
