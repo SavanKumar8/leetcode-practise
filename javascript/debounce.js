@@ -4,14 +4,14 @@ function getData() {
 }
 
 
-function debounce(call,d){
-let timer;
-return function(...args){
- if(timer) clearInterval(timer)
- setTimeout(()=>{
-call()
- },d)
-}
+var debounce = function(fn, t) {
+    let timer;
+    return function(...args) {
+        if(timer) clearTimeout(timer)
+     timer =setTimeout(()=>{
+        fn(...args)
+        },t)
+    }
 }
 
 const betterfunction = debounce(getData,1000)
