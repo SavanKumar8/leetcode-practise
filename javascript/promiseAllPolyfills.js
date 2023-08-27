@@ -22,11 +22,13 @@ Promise.myAll = (promiseArray) => {
   let count = 0;
   return new Promise((resolve, reject) => {
     for (let i = 0; i < promiseArray.length; i++) {
-      promiseArray[i]
+      // looping on promise array
+      promiseArray[i] // individial promjse array
         .then((res) => {
-          result[i] = res;
+          result[i] = res; //push in same index as promise array index
           count++;
           if (count === promiseArray.length) {
+            // promise array and result array should be equal
             resolve(result);
           }
         })
