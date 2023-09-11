@@ -15,4 +15,30 @@ Array.prototype.myFlat = function (depth = 1) {
   return result;
 };
 
-// array flat using ittrerative way
+// flatten nested object
+
+obj = {a:1,b:{c:2},d:4,e:{f:{g:5}}}
+
+//output
+
+// obj:{
+//     a:1,
+//     b.c:2,
+//     d:4,
+//     e.f.g:5
+// }
+
+function flattenObj(obj,prefix = ''){
+    let resultObj = {}
+    for(key in obj){
+        val = obj[key]
+let newPrefix =  prefix === ''? key:prefix+'.'+key
+        if(val !== null || typeof val === 'object'){
+            let recursive = flattenObj(val, newPrefix);
+            resultObj = { ...resultObj ,...resultObj};
+        }else{
+            resultObj[newPrefix]=val
+        }
+    }
+    return resultObj
+}
