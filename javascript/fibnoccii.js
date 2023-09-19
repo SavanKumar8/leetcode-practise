@@ -14,13 +14,13 @@ function fib(num) {
 //console.log(fib(5))
 
 function fibnocci(num){
-    let n1 = 0;
-    let n2 =1;
-    for(let i =1;i<=num;i++){
-      console.log(n1)
-      nextItem = n1+n2
-      n1=n2;
-      n2=nextItem;
+    let n1 = 0
+    let n2 = 1
+    for(let i=1;i<=num;i++){
+        console.log(n1) // 0 1 1
+        nextitem = n1+n2; //0+1 //1
+        n1=n2 //1
+        n2=nexitem //1
+
     }
 }
-console.log(fibnocci(5));
